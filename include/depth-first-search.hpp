@@ -7,22 +7,21 @@
 #include <unordered_set>
 
 namespace boggle {
-        struct DepthFirstSearch {
-                typedef std::unordered_set<std::string> Results;
+struct DepthFirstSearch {
+    typedef std::unordered_set<std::string> Results;
 
-                Results const &operator ()(Board const &board,
-                        Dictionary const &dictionary);
+    Results const &operator()(Board const &board, Dictionary const &dictionary);
 
-        private:
-                void flood(Board const &board, Dictionary const &dictionary,
-                        int x, int y, std::string string);
+private:
+    void flood(Board const &board, Dictionary const &dictionary, int x, int y,
+        std::string string);
 
-        protected:
-                Results results_;
+protected:
+    Results results_;
 
-        private:
-                std::vector<bool> visitedPoints_;
-        };
+private:
+    std::vector<bool> visitedPoints_;
+};
 }
 
 #endif

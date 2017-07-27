@@ -3,53 +3,50 @@
 
 #include <utility>
 
-#include <vector>
 #include <string>
+#include <vector>
 
 #include <ostream>
 
 namespace boggle {
-        class Board {
-        public:
-                Board(std::string const &data, unsigned width,
-                        unsigned height);
+class Board {
+public:
+    Board(std::string const &data, unsigned width, unsigned height);
 
-                ~Board() = default;
+    ~Board() = default;
 
-                inline unsigned getWidth() const;
-                inline unsigned getHeight() const;
+    inline unsigned getWidth() const;
+    inline unsigned getHeight() const;
 
-                inline char getValue(int x, int y) const;
-                inline char operator [](
-                        std::pair<int, int> const &coordinates) const;
+    inline char getValue(int x, int y) const;
+    inline char operator[](std::pair<int, int> const &coordinates) const;
 
-                inline bool hasValue(char value) const;
-                std::vector<std::pair<int, int>> findValue(char value) const;
+    inline bool hasValue(char value) const;
+    std::vector<std::pair<int, int>> findValue(char value) const;
 
-                inline bool isValid() const;
+    inline bool isValid() const;
 
-                inline bool doesContainPoint(int x, int y) const;
-                inline bool doesContainPoint(
-                        std::pair<int, int> const &coordinates) const;
+    inline bool doesContainPoint(int x, int y) const;
+    inline bool doesContainPoint(std::pair<int, int> const &coordinates) const;
 
-        private:
-                Board() = delete;
-                Board(Board const &) = delete;
-                Board(Board &&) = delete;
+private:
+    Board() = delete;
+    Board(Board const &) = delete;
+    Board(Board &&) = delete;
 
-                Board &operator =(Board const &) = delete;
-                Board &operator =(Board &&) = delete;
+    Board &operator=(Board const &) = delete;
+    Board &operator=(Board &&) = delete;
 
-        private:
-                std::string data_;
+private:
+    std::string data_;
 
-                unsigned width_ = 0;
-                unsigned height_ = 0;
+    unsigned width_ = 0;
+    unsigned height_ = 0;
 
-                bool isValid_ = false;
-        };
+    bool isValid_ = false;
+};
 
-        std::ostream &operator <<(std::ostream &stream, Board const &board);
+std::ostream &operator<<(std::ostream &stream, Board const &board);
 }
 
 #include "board.inl"

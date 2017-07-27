@@ -5,29 +5,29 @@
 
 int main(int count, char *arguments[])
 {
-        using namespace boggle;
+    using namespace boggle;
 
-        LoadDictionary("./test/task.txt");
+    LoadDictionary("./test/task.txt");
 
-        Results results = FindWords("zpweaufsx", 3, 3);
-        results = FindWords("juqwapoqw", 3, 3);
-        results = FindWords("pzhouceza", 3, 3);
-        results = FindWords("zpweaufsx", 3, 3);
+    Results results = FindWords("zpweaufsx", 3, 3);
+    results = FindWords("juqwapoqw", 3, 3);
+    results = FindWords("pzhouceza", 3, 3);
+    results = FindWords("zpweaufsx", 3, 3);
 
-        if (results.Count != 38 || results.Score != 40) {
-                exit(1);
-        }
+    if (results.Count != 38 || results.Score != 40) {
+        exit(1);
+    }
 
-        for (unsigned i = 0; i < results.Count; ++i) {
-                std::cout << results.Words[i] << ' ';
-        }
+    for (unsigned i = 0; i < results.Count; ++i) {
+        std::cout << results.Words[i] << ' ';
+    }
 
-        std::cout << '\n';
+    std::cout << '\n';
 
-        FreeWords(results);
-        FreeDictionary();
+    FreeWords(results);
+    FreeDictionary();
 
-        std::cout << *arguments << ": test passed...\n";
+    std::cout << *arguments << ": test passed...\n";
 
-        return 0;
+    return 0;
 }

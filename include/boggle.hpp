@@ -9,7 +9,7 @@
 #include "solver.hpp"
 
 namespace boggle {
-        inline unsigned getScoreForWord(std::string const &word);
+inline unsigned getScoreForWord(std::string const &word);
 }
 
 #include "boggle.inl"
